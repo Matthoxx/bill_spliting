@@ -33,7 +33,7 @@ Repo for a Python tkinter based bill splitting app. Takes a very specific type o
 ### Using the python file
 
 1. Ensure to have Python > 3.9 and tkinter installed.
-2. Run the ```tkinter_interface.py``` script
+2. Run the ```tkinter_interface.py``` or ```ticket_html.py``` script
 3. Follow the steps of "Using the executable" section
 
 ## Install the executable on Windows
