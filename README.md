@@ -14,14 +14,14 @@ Repo for a Python tkinter based bill splitting app. Takes a very specific type o
 ## How to use it:
 
 ### Using the executable :
-A. Using the user interface
+**A. Using the user interface**
 1. Go on Carrefour's website $\rightarrow$ "Mes achats" $\rightarrow$ "Mes tickets de caisse".
 2. Choose a bill and click on "Voir le détail"
 3. Click on "X articles"
 4. Copy all the articles info as in the example on the following image: ![alt text](example.png)
 6. Put the copied text in the input cell of the app ```tkinter_interface```. An example raw text is given in the ```ìnvoice_example.txt``` file.
 
-B. Using the HTML source code
+**B. Using the HTML source code**
 1. Go on Carrefour's website $\rightarrow$ "Mes achats" $\rightarrow$ "Mes tickets de caisse".
 2. Choose a bill and click on "Voir le détail"
 3. Click on "X articles"
