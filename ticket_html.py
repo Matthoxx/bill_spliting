@@ -33,7 +33,7 @@ def parse_html(html):
         )
 
         # Extract price
-        price_tag = item.select_one(".pl-price")
+        price_tag = item.select_one(".offline-order-detail__product-item-price")
         price_text = (
             price_tag.get_text(strip=True).replace("€", "").replace(",", ".")
             if price_tag
@@ -44,11 +44,30 @@ def parse_html(html):
         # Check for discount and subtract it if present
         discount_tag = item.select_one(".offline-order-detail__product-item-discount")
         if discount_tag:
-            discount_text = (
-                discount_tag.get_text(strip=True).replace("€", "").replace(",", ".")
-            )
-            discount = abs(float(discount_text))
-            price -= discount
+            if price == 0.0:
+                price_tag = item.select_one(
+                    ".offline-order-detail__product-item-price-promo"
+                )
+                price_text = (
+                    price_tag.get_text(strip=True).replace("€", "").replace(",", ".")
+                    if price_tag
+                    else "0"
+                )
+                price = float(price_text)
+                discount = abs(
+                    float(
+                        discount_tag.get_text(strip=True)
+                        .replace("€", "")
+                        .replace(",", ".")
+                    )
+                )
+                price -= discount
+            else:
+                discount_text = (
+                    discount_tag.get_text(strip=True).replace("€", "").replace(",", ".")
+                )
+                discount = abs(float(discount_text))
+                price -= discount
 
         # Round the price
         price = round(price, 2)
