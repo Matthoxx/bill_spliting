@@ -33,7 +33,7 @@ def parse_html(html):
         )
 
         # Extract price
-        price_tag = item.select_one(".pl-price")
+        price_tag = item.select_one(".offline-order-detail__product-item-price")
         price_text = (
             price_tag.get_text(strip=True).replace("€", "").replace(",", ".")
             if price_tag
